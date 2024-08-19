@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/mobile_navigation"
+  app:startDestination="@+id/nav_home">
+  
+  <fragment
+    android:id="@+id/nav_home"
+    android:name="com.bop.shafya.ui.home.HomeFragment"
+    android:label="@string/menu_home"
+    tools:layout="@layout/fragment_home" />
+  
+  <fragment
+    android:id="@+id/nav_gallery"
+    android:name="com.bop.shafya.ui.gallery.GalleryFragment"
+    android:label="@string/menu_laboratory"
+    tools:layout="@layout/fragment_gallery" />
+  
+  <fragment
+    android:id="@+id/nav_slideshow"
+    android:name="com.bop.shafya.ui.slideshow.SlideshowFragment"
+    android:label="@string/menu_files"
+    tools:layout="@layout/fragment_slideshow" />
+  
+  <fragment
+    android:id="@+id/nav_new_rdv"
+    android:name="com.bop.shafya.ui.home.CreateNewRdvFragment"
+    android:label="@string/menu_rdv"
+    tools:layout="@layout/fragment_create_new_rdv" />
+  
+  <fragment
+    android:id="@+id/nav_new_file"
+    android:name="com.bop.shafya.ui.slideshow.NewFileFragment"
+    android:label="@string/menu_new_file"
+    tools:layout="@layout/fragment_new_file" />
+  
+  <fragment
+    android:id="@+id/nav_new_lab"
+    android:name="com.bop.shafya.ui.gallery.NewLabResultFragment"
+    android:label="@string/menu_new_lab"
+    tools:layout="@layout/fragment_new_lab_result" />
+</navigation>

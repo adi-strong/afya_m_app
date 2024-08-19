@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:showIn="navigation_view">
+  
+  <group android:checkableBehavior="single">
+    <item
+      android:id="@+id/nav_home"
+      android:icon="@drawable/ic_menu_home"
+      android:title="@string/reception_text" />
+    <item
+      android:id="@+id/nav_slideshow"
+      android:icon="@drawable/ic_menu_files"
+      android:title="@string/menu_files" />
+    <item
+      android:id="@+id/nav_gallery"
+      android:icon="@drawable/ic_lab"
+      android:title="@string/lab_text" />
+    <item
+      android:id="@+id/nav_account"
+      android:icon="@drawable/ic_menu_account"
+      android:title="@string/menu_account" />
+    <item
+      android:visible="false"
+      android:id="@+id/nav_new_rdv"
+      android:icon="@drawable/ic_lab"
+      android:title="@string/menu_rdv" />
+    <item
+      android:visible="false"
+      android:id="@+id/nav_new_file"
+      android:icon="@drawable/ic_menu_files"
+      android:title="@string/menu_new_file" />
+    <item
+      android:visible="false"
+      android:id="@+id/nav_new_lab"
+      android:icon="@drawable/ic_lab"
+      android:title="@string/menu_new_lab" />
+  </group>
+</menu>
