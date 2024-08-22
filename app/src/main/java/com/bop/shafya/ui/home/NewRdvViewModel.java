@@ -1,0 +1,81 @@
+package com.bop.shafya.ui.home;
+
+import android.util.Log;
+
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
+
+import com.bop.shafya.entity.AgentEntity;
+import com.bop.shafya.entity.PatientEntity;
+import com.bop.shafya.repository.AgentRepository;
+import com.bop.shafya.repository.PatientRepository;
+
+import java.util.List;
+
+public class NewRdvViewModel extends ViewModel {
+  
+  private PatientRepository patientRepository;
+  private AgentRepository agentRepository;
+  private final MutableLiveData<List<PatientEntity>> patientsLiveData = new MutableLiveData<>();
+  private final MutableLiveData<List<AgentEntity>> agentsLiveData = new MutableLiveData<>();
+  private final MutableLiveData<String> errorLiveData = new MutableLiveData<>();
+  
+  // Constructeur sans argument
+  public NewRdvViewModel() {
+    // Initialisation par défaut ou des dépendances peuvent être injectées plus tard
+  }
+  
+  // Méthode pour injecter la dépendance après la création du ViewModel
+  public void setPatientRepository(PatientRepository patientRepository) {
+    this.patientRepository = patientRepository;
+  }
+  
+  public void setAgentRepository(AgentRepository agentRepository) {
+    this.agentRepository = agentRepository;
+  }
+  
+  public MutableLiveData<List<PatientEntity>> getPatientsLiveData() { return patientsLiveData; }
+  public MutableLiveData<List<AgentEntity>> getAgentsLiveData() { return agentsLiveData; }
+  public MutableLiveData<String> getErrorLiveData() { return errorLiveData; }
+  
+  public void searchPatient(String keyword) {
+    if (patientRepository != null) {
+      patientRepository.getSearchPatient(keyword, new PatientRepository.GetSearchPatientCallBack() {
+        @Override
+        public void onSuccess(List<PatientEntity> patients) {
+          patientsLiveData.setValue(patients);
+        }
+        
+        @Override
+        public void onError(String error) {
+          errorLiveData.setValue(error);
+        }
+      });
+    }
+  }
+  
+  public void fetchAgents() {
+    if (agentRepository != null) {
+      agentRepository.fetchAllAgents(new AgentRepository.SearchAllAgentsCallback() {
+        @Override
+        public void onSuccess(List<AgentEntity> agents) {
+          if (agents != null) {
+            Log.d("NewRdvViewModel", "Agents fetched: " + agents.size());
+            agentsLiveData.setValue(agents);
+          } else {
+            Log.e("NewRdvViewModel", "Liste des agents est nulle");
+            errorLiveData.setValue("Liste des agents est nulle");
+          }
+        }
+        
+        @Override
+        public void onError(String error) {
+          Log.e("NewRdvViewModel", "Error fetching agents: " + error);
+          errorLiveData.setValue(error);
+        }
+      });
+    }
+  }
+  
+  
+}

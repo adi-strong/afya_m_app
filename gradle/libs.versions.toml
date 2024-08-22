@@ -15,6 +15,8 @@ materialVersion = "1.8.0"
 navigationFragment = "2.7.7"
 navigationUi = "2.7.7"
 retrofit = "2.9.0"
+annotation = "1.8.2"
+activity = "1.9.1"
 
 [libraries]
 cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
@@ -34,6 +36,8 @@ material-v180 = { module = "com.google.android.material:material", version.ref =
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

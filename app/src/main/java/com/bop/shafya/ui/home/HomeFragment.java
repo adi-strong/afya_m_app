@@ -25,11 +25,22 @@ public class HomeFragment extends Fragment {
     binding.searchButtonAction.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+        // Obtenez le texte saisi par l'utilisateur
+        String searchText = binding.searchBar.getText().toString();
+        
+        // Créez un bundle avec les arguments
+        Bundle bundle = new Bundle();
+        bundle.putString("keyword", searchText);
+        
+        // Obtenez le NavController
         NavController navController = Navigation.findNavController(v);
-        navController.navigate(R.id.nav_new_rdv);
+        
+        // Naviguez vers le fragment de destination avec le bundle
+        navController.navigate(R.id.nav_new_rdv, bundle);
       }
     });
   }
+  
   
   
   public View onCreateView(

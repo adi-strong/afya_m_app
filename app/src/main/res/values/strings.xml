@@ -11,7 +11,8 @@
     <item>Colposcopie</item>
   </string-array>
   
-  <string name="app_name">ShAfya</string>
+  <string name="app_name">AFYA</string>
+  <string name="register_name">Nouveau compte</string>
   <string name="navigation_drawer_open">Open navigation drawer</string>
   <string name="navigation_drawer_close">Close navigation drawer</string>
   <string name="nav_header_title">Afya</string>
@@ -87,4 +88,32 @@
   <string name="valeur_normal">Valeur Normal</string>
   <string name="colscopie">Colscopie</string>
   <string name="fiches_de_consultation">Fiches de consultation</string>
+  <string name="title_activity_login">Authentification</string>
+  <string name="prompt_email">Email</string>
+  <string name="prompt_password">Password</string>
+  <string name="action_sign_in">Sign in or register</string>
+  <string name="action_sign_in_short">Sign in</string>
+  <string name="welcome">"Welcome !"</string>
+  <string name="invalid_username">Not a valid username</string>
+  <string name="invalid_password">Password must be >5 characters</string>
+  <string name="login_failed">"Login failed"</string>
+  <string name="login_button_description">Login button</string>
+  <string name="login_text_label">Se Connecter</string>
+  <string name="password_text_label">* Mot de passe</string>
+  <string name="confirm_password_text_label">Confirmation du mot de passe</string>
+  <string name="full_text_label">* Nom complet</string>
+  <string name="email_text_label">Email</string>
+  <string name="phone_text_label">* N° de Téléphone</string>
+  <string name="password_input_field_desc">Password input field</string>
+  <string name="username_text_label">Username</string>
+  <string name="username_2_text_label">* Username</string>
+  <string name="username_input_field_desc">Username input field</string>
+  <string name="biometric_authentication_text_label">Auth. Biométrique</string>
+  <string name="biometric_data_text_label">Empreinte digitale</string>
+  <string name="biometric_authentication_button_desc">Biometric authentication button</string>
+  <string name="create_an_account_text_label">Créer un Compte</string>
+  <string name="create_account_button_text_label">Create account button</string>
+  <string name="patient_profile_desc">Patient profile</string>
+  <string name="etiquette">Étiquette</string>
+  <string name="donnee">Donnée</string>
 </resources>
