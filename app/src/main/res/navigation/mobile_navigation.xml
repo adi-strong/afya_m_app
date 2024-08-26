@@ -25,7 +25,11 @@
     android:id="@+id/nav_slideshow"
     android:name="com.bop.shafya.ui.slideshow.SlideshowFragment"
     android:label="@string/menu_files"
-    tools:layout="@layout/fragment_slideshow" />
+    tools:layout="@layout/fragment_slideshow">
+    <action
+      android:id="@+id/action_nav_slide_to_nav_new_file"
+      app:destination="@+id/nav_new_file" />
+  </fragment>
   
   <fragment
     android:id="@+id/nav_new_rdv"

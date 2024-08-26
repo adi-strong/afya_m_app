@@ -2,14 +2,13 @@ package com.bop.shafya.repository;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.bop.shafya.entity.AgentEntity;
+import com.bop.shafya.entity.CFileEntity;
 import com.bop.shafya.services.ApiClientService;
 import com.bop.shafya.services.ApiServiceInterface;
-import com.bop.shafya.ui.home.AgentResponse;
+import com.bop.shafya.ui.slideshow.CFileResponse;
 
 import java.util.List;
 
@@ -17,31 +16,31 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AgentRepository {
+public class CFileRepository {
   
   private final ApiServiceInterface apiServiceInterface;
   
-  public AgentRepository(Context context) {
+  public CFileRepository(Context context) {
     SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
     String token = sharedPreferences.getString("jwt_token", "");
     apiServiceInterface = ApiClientService.getClient(token).create(ApiServiceInterface.class);
   }
   
-  public interface SearchAllAgentsCallback {
-    void onSuccess(List<AgentEntity> agents);
+  public interface SearchAllCFilesCallback {
+    void onSuccess(List<CFileEntity> agents);
     void onError(String error);
   }
   
-  public void fetchAllAgents(SearchAllAgentsCallback callback) {
-    apiServiceInterface.getAllAgents().enqueue(new Callback<AgentResponse>() {
+  public void fetchAllCFiles(CFileRepository.SearchAllCFilesCallback callback) {
+    apiServiceInterface.getAllCFiles().enqueue(new Callback<CFileResponse>() {
       @Override
       public void onResponse(
-        @NonNull Call<AgentResponse> call,
-        @NonNull Response<AgentResponse> response) {
+        @NonNull Call<CFileResponse> call,
+        @NonNull Response<CFileResponse> response) {
         if (response.isSuccessful() && response.body() != null) {
-          List<AgentEntity> agents = response.body().getHydraMember();
-          if (agents != null && !agents.isEmpty()) {
-            callback.onSuccess(agents);
+          List<CFileEntity> files = response.body().getHydraMember();
+          if (files != null && !files.isEmpty()) {
+            callback.onSuccess(files);
           } else {
             callback.onError("Erreur : Liste des agents vide");
           }
@@ -51,7 +50,7 @@ public class AgentRepository {
       }
       
       @Override
-      public void onFailure(@NonNull Call<AgentResponse> call, @NonNull Throwable t) {
+      public void onFailure(@NonNull Call<CFileResponse> call, @NonNull Throwable t) {
         callback.onError("Erreur de réseau : " + t.getMessage());
       }
     });

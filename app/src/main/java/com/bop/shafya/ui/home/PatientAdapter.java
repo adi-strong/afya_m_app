@@ -37,8 +37,22 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.PatientV
   public void onBindViewHolder(@NonNull PatientViewHolder holder, int position) {
     PatientEntity patient = patients.get(position);
     // Afficher le prénom et le nom en majuscules
-    holder.nameTextView.setText(patient.getName().toUpperCase());
-    holder.nameTextView.setText(patient.getName().toUpperCase());
+    
+    String id = (patient.getId() != null && !patient.getId().isEmpty())
+      ? "#" + patient.getId() + " - " : "";
+    
+    String name = (patient.getName() != null && !patient.getName().isEmpty())
+      ? patient.getName().toUpperCase() : "";
+    
+    String lastName = (patient.getLastName() != null && !patient.getLastName().isEmpty())
+      ? patient.getLastName().toUpperCase() : "";
+    
+    String firstName = (patient.getFirstName() != null && !patient.getFirstName().isEmpty())
+      ? patient.getFirstName().toUpperCase() : "";
+    
+    String fullName = id + name + lastName + firstName;
+    
+    holder.nameTextView.setText(fullName);
     
     // Configurez l'image du patient si disponible
     // holder.patientImageView.setImageResource(...); // Exemple si vous avez une image à définir

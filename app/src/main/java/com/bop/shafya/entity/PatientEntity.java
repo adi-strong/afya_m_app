@@ -1,7 +1,10 @@
 package com.bop.shafya.entity;
 
+import com.google.gson.annotations.SerializedName;
+
 public class PatientEntity {
   
+  @SerializedName("id")
   private String id;
   
   public String getId() {
@@ -12,14 +15,47 @@ public class PatientEntity {
     this.id = id;
   }
   
+  @SerializedName("name")
   private String name;
+  
+  @SerializedName("lastName")
   private String lastName;
+  
+  @SerializedName("firstName")
   private String firstName;
+  
+  @SerializedName("sex")
   private String sex;
+  
+  @SerializedName("maritalStatus")
   private String maritalStatus;
+  
+  @SerializedName("bornPlace")
   private String bornPlace;
+  
+  @SerializedName("bornAt")
   private String bornAt;
-  private String nationality, phone, email, father, mother, address, age;
+  
+  @SerializedName("nationality")
+  private String nationality;
+  
+  @SerializedName("phone")
+  private String phone;
+  
+  @SerializedName("email")
+  private String email;
+  
+  @SerializedName("father")
+  private String father;
+  
+  @SerializedName("mother")
+  private String mother;
+  
+  @SerializedName("address")
+  private String address;
+  
+  @SerializedName("age")
+  private String age;
   
   public String getAge() {
     return age;

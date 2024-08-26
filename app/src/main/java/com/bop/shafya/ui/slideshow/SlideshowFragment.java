@@ -23,14 +23,21 @@ public class SlideshowFragment extends Fragment {
     binding.searchButtonAction.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+        String searchText = binding.searchBar.getText().toString();
         NavController navController = Navigation.findNavController(v);
-        navController.navigate(R.id.nav_new_file);
+        // Créez un bundle avec les arguments
+        Bundle bundle = new Bundle();
+        bundle.putString("keyword", searchText);
+        
+        navController.navigate(R.id.nav_new_file, bundle);
       }
     });
   }
   
-  public View onCreateView(@NonNull LayoutInflater inflater,
-                           ViewGroup container, Bundle savedInstanceState) {
+  public View onCreateView(
+    @NonNull LayoutInflater inflater,
+    ViewGroup container,
+    Bundle savedInstanceState) {
     SlideshowViewModel slideshowViewModel =
       new ViewModelProvider(this).get(SlideshowViewModel.class);
     

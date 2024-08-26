@@ -135,6 +135,19 @@
               <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/id_text_label"
+                android:paddingEnd="8dp"
+                tools:ignore="RtlSymmetry" />
+              <TextView
+                android:id="@+id/id_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            </TableRow>
+            
+            <TableRow>
+              <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/name_text_label"
                 android:paddingEnd="8dp"
                 tools:ignore="RtlSymmetry" />
@@ -226,8 +239,7 @@
             android:id="@+id/doctor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Select an agent"/>
-          
+            android:hint="@string/select_doctor" />
           
           <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -251,6 +263,18 @@
               android:layout_height="wrap_content"
               android:inputType="textMultiLine"
               android:hint="@string/description_text_label"/>
+          </com.google.android.material.textfield.TextInputLayout>
+          
+          <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/at"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="date"
+              android:hint="@string/heure_et_date"/>
           </com.google.android.material.textfield.TextInputLayout>
           
           <LinearLayout
@@ -278,7 +302,7 @@
               android:layout_height="wrap_content"/>
             
             <Button
-              android:id="@+id/valid_rrdv_button_action"
+              android:id="@+id/valid_rdv_button_action"
               style="@style/PrimaryButtonStyle"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -288,6 +312,14 @@
               android:layout_width="0dp"
               android:layout_height="wrap_content"
               android:layout_weight="1"/>
+            
+            <ProgressBar
+              android:id="@+id/progress_bar_2"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerInParent="true"
+              android:visibility="gone"
+              tools:ignore="ObsoleteLayoutParam" />
           
           </LinearLayout>
         

@@ -51,8 +51,9 @@
         android:layout_height="wrap_content"
         android:text="@string/biometric_search_text"/>
       
+      <!-- CardView pour la liste des patients avec un loader -->
       <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_table"
+        android:id="@+id/new_file_card_view_patients_table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -66,7 +67,39 @@
           android:orientation="vertical"
           android:padding="16dp">
           
-          <!-- Image du profil du patient -->
+          <ProgressBar
+            android:id="@+id/new_file_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+          
+          <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/new_file_patient_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+        </LinearLayout>
+      </androidx.cardview.widget.CardView>
+      
+      <!-- new_file_card_view_table -->
+      <androidx.cardview.widget.CardView
+        android:id="@+id/new_file_card_view_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@android:color/white"
+        android:visibility="gone">
+        
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:padding="16dp">
+          
           <ImageView
             android:id="@+id/profile_image"
             android:layout_width="match_parent"
@@ -77,21 +110,19 @@
             android:scaleType="centerCrop"
             android:layout_marginBottom="16dp"/>
           
-          <!-- Tableau des détails du patient -->
           <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:stretchColumns="1"
             android:layout_marginTop="8dp">
             
-            <!-- En-tête des colonnes -->
             <TableRow
               android:background="@android:color/darker_gray">
               
               <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tiquette"
+                android:text="@string/etiquette"
                 android:textStyle="bold"
                 android:paddingEnd="8dp"
                 android:textColor="@android:color/white"
@@ -99,12 +130,24 @@
               <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/donn_e"
+                android:text="@string/donnee"
                 android:textStyle="bold"
                 android:textColor="@android:color/white"/>
             </TableRow>
             
-            <!-- Nom -->
+            <TableRow>
+              <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/id_text_label"
+                android:paddingEnd="8dp"
+                tools:ignore="RtlSymmetry" />
+              <TextView
+                android:id="@+id/id_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            </TableRow>
+            
             <TableRow>
               <TextView
                 android:layout_width="wrap_content"
@@ -113,65 +156,57 @@
                 android:paddingEnd="8dp"
                 tools:ignore="RtlSymmetry" />
               <TextView
+                android:id="@+id/name_detail"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dupont"/>
+                android:layout_height="wrap_content"/>
             </TableRow>
             
-            <!-- Postnom -->
             <TableRow>
               <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/lastname_text_label"
-                android:paddingEnd="8dp"
-                tools:ignore="RtlSymmetry" />
+                android:paddingEnd="8dp"/>
               <TextView
+                android:id="@+id/lastname_detail"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/jean"/>
+                android:layout_height="wrap_content"/>
             </TableRow>
             
-            <!-- Prénom -->
             <TableRow>
               <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/firstname_text_label"
-                android:paddingEnd="8dp"
-                tools:ignore="RtlSymmetry" />
+                android:paddingEnd="8dp"/>
               <TextView
+                android:id="@+id/firstname_detail"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/marie"/>
+                android:layout_height="wrap_content"/>
             </TableRow>
             
-            <!-- Sexe -->
             <TableRow>
               <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sex_text_label"
-                android:paddingEnd="8dp"
-                tools:ignore="RtlSymmetry" />
+                android:paddingEnd="8dp"/>
               <TextView
+                android:id="@+id/sex_detail"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/f_minin"/>
+                android:layout_height="wrap_content"/>
             </TableRow>
             
-            <!-- Âge -->
             <TableRow>
               <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/age_text_label"
-                android:paddingEnd="8dp"
-                tools:ignore="RtlSymmetry" />
+                android:paddingEnd="8dp"/>
               <TextView
+                android:id="@+id/age_detail"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/_29_ans"/>
+                android:layout_height="wrap_content"/>
             </TableRow>
           
           </TableLayout>
@@ -180,6 +215,8 @@
       
       <!-- Formulaire avec les champs à étiquette flottante -->
       <androidx.cardview.widget.CardView
+        android:id="@+id/new_file_form_card_view"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -191,6 +228,22 @@
           android:layout_height="wrap_content"
           android:orientation="vertical"
           android:padding="16dp">
+          
+          <!-- Exemple de XML pour AutoCompleteTextView -->
+          <AutoCompleteTextView
+            android:id="@+id/new_file_c_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:hint="@string/type_de_fiche" />
+          
+          <!-- Exemple de XML pour AutoCompleteTextView -->
+          <AutoCompleteTextView
+            android:id="@+id/new_file_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="@string/select_doctor" />
           
           <TextView
             android:layout_width="match_parent"
@@ -405,7 +458,7 @@
               android:layout_height="wrap_content"/>
             
             <Button
-              android:id="@+id/valid_rrdv_button_action"
+              android:id="@+id/valid_rdv_button_action"
               style="@style/PrimaryButtonStyle"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -416,6 +469,14 @@
               android:layout_width="0dp"
               android:layout_height="wrap_content"
               android:layout_weight="1"/>
+            
+            <ProgressBar
+              android:id="@+id/progress_bar_2"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerInParent="true"
+              android:visibility="gone"
+              tools:ignore="ObsoleteLayoutParam" />
           
           </LinearLayout>
         

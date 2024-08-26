@@ -116,4 +116,8 @@
   <string name="patient_profile_desc">Patient profile</string>
   <string name="etiquette">Étiquette</string>
   <string name="donnee">Donnée</string>
+  <string name="id_text_label">ID</string>
+  <string name="heure_et_date">Heure et date</string>
+  <string name="select_doctor">Sélectionner un Médecin</string>
+  <string name="type_de_fiche">Type de fiche</string>
 </resources>
