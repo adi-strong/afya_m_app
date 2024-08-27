@@ -33,6 +33,7 @@ import com.bop.shafya.ui.home.AgentAdapter;
 import com.bop.shafya.ui.home.PatientAdapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class NewFileFragment extends Fragment {
@@ -303,6 +304,26 @@ public class NewFileFragment extends Fragment {
       String mentions = ((EditText) getView().findViewById(R.id.mentions)).getText().toString();
       String background = ((EditText) getView().findViewById(R.id.background)).getText().toString();
       
+      String temperature = ((EditText) getView().findViewById(R.id.temperature)).getText().toString();
+      String weight = ((EditText) getView().findViewById(R.id.weight)).getText().toString();
+      String bloodTension = ((EditText) getView().findViewById(R.id.blood_tension)).getText().toString();
+      String heartFrequency = ((EditText) getView().findViewById(R.id.heart_frequency)).getText().toString();
+      String oxygenSaturation = ((EditText) getView().findViewById(R.id.oxygen_saturation)).getText().toString();
+      String diagnostic = ((EditText) getView().findViewById(R.id.diagnostic)).getText().toString();
+      String respiratoryRate = ((EditText) getView().findViewById(R.id.respiratory_rate)).getText().toString();
+      
+      HashMap<String, String> content = new HashMap<>();
+      content.put("temperature", temperature);
+      content.put("weight", weight);
+      content.put("bloodPressure", bloodTension);
+      content.put("cardiacFrequency", heartFrequency);
+      content.put("diagnostic", diagnostic);
+      content.put("oxygenSaturation", oxygenSaturation);
+      content.put("respiratoryRate", respiratoryRate);
+      request.setContent(content);
+      
+      String clinicalIntelligence = ((EditText) getView().findViewById(R.id.clinical_intelligence)).getText().toString();
+      
       request.setConclusion(conclusion);
       request.setFamily(family);
       request.setComplement(complement);
@@ -311,6 +332,7 @@ public class NewFileFragment extends Fragment {
       request.setBackground(background);
       request.setTotal("0");
       request.setTotalWithoutTax("0");
+      request.setClinicAdvice(clinicalIntelligence);
       
       setUiEnabled(false);
       ProgressBar progressBar = getView().findViewById(R.id.progress_bar_2);

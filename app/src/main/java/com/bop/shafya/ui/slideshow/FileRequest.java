@@ -1,14 +1,33 @@
 package com.bop.shafya.ui.slideshow;
 
+import java.util.HashMap;
+
 public class FileRequest {
   
   private String background, particularMentions, surgical, family, complement, conclusion;
-  private String bloodPressure, cardiacFrequency, diagnostic, oxygenSaturation, respiratoryRate;
-  private String temperature, weight;
   private String agent;
   private String file;
   private String patient;
   private String total;
+  
+  public String getClinicAdvice() {
+    return clinicAdvice;
+  }
+  
+  public void setClinicAdvice(String clinicAdvice) {
+    this.clinicAdvice = clinicAdvice;
+  }
+  
+  private String clinicAdvice;
+  private HashMap<String, String> content = new HashMap<>();
+  
+  public HashMap<String, String> getContent() {
+    return content;
+  }
+  
+  public void setContent(HashMap<String, String> content) {
+    this.content = content;
+  }
   
   public String getTotalWithoutTax() {
     return totalWithoutTax;
@@ -90,62 +109,6 @@ public class FileRequest {
   
   public void setConclusion(String conclusion) {
     this.conclusion = conclusion;
-  }
-  
-  public String getBloodPressure() {
-    return bloodPressure;
-  }
-  
-  public void setBloodPressure(String bloodPressure) {
-    this.bloodPressure = bloodPressure;
-  }
-  
-  public String getCardiacFrequency() {
-    return cardiacFrequency;
-  }
-  
-  public void setCardiacFrequency(String cardiacFrequency) {
-    this.cardiacFrequency = cardiacFrequency;
-  }
-  
-  public String getDiagnostic() {
-    return diagnostic;
-  }
-  
-  public void setDiagnostic(String diagnostic) {
-    this.diagnostic = diagnostic;
-  }
-  
-  public String getOxygenSaturation() {
-    return oxygenSaturation;
-  }
-  
-  public void setOxygenSaturation(String oxygenSaturation) {
-    this.oxygenSaturation = oxygenSaturation;
-  }
-  
-  public String getRespiratoryRate() {
-    return respiratoryRate;
-  }
-  
-  public void setRespiratoryRate(String respiratoryRate) {
-    this.respiratoryRate = respiratoryRate;
-  }
-  
-  public String getTemperature() {
-    return temperature;
-  }
-  
-  public void setTemperature(String temperature) {
-    this.temperature = temperature;
-  }
-  
-  public String getWeight() {
-    return weight;
-  }
-  
-  public void setWeight(String weight) {
-    this.weight = weight;
   }
   
   public String getBackground() {

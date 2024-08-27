@@ -402,11 +402,23 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp">
             <com.google.android.material.textfield.TextInputEditText
-              android:id="@+id/observation"
+              android:id="@+id/respiratory_rate"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:inputType="text"
+              android:hint="Fréquence respiratoire" />
+          </com.google.android.material.textfield.TextInputLayout>
+          
+          <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/diagnostic"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:inputType="textMultiLine"
-              android:hint="@string/observation_text_label" />
+              android:hint="@string/diagnostic" />
           </com.google.android.material.textfield.TextInputLayout>
           
           <com.google.android.material.textfield.TextInputLayout
