@@ -14,6 +14,11 @@ android {
     versionName = "1.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    externalNativeBuild {
+      cmake {
+        cppFlags += ""
+      }
+    }
   }
 
   buildTypes {
@@ -28,6 +33,12 @@ android {
   }
   buildFeatures {
     viewBinding = true
+  }
+  externalNativeBuild {
+    cmake {
+      path = file("src/main/cpp/CMakeLists.txt")
+      version = "3.22.1"
+    }
   }
 }
 
@@ -49,6 +60,9 @@ dependencies {
   implementation(libs.navigation.ui)
   implementation(libs.annotation)
   implementation(libs.activity)
+  implementation(files("libs/core-3.2.1.jar"))
+  implementation(files("libs/emv_2.0.0_R240607.jar"))
+  implementation(files("libs/SmartPos_1.9.0_R240612.jar"))
   testImplementation(libs.junit)
   androidTestImplementation(libs.ext.junit)
   androidTestImplementation(libs.espresso.core)

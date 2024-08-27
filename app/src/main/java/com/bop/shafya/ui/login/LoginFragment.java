@@ -7,26 +7,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bop.shafya.MainActivity;
-import com.bop.shafya.R;
 import com.bop.shafya.databinding.FragmentLoginBinding;
 import com.bop.shafya.ui.register.RegisterActivity;
-
-import java.util.Objects;
 
 public class LoginFragment extends Fragment {
   
   private LoginViewModel loginViewModel;
   private FragmentLoginBinding binding;
   
-  public LoginFragment() {
-    // Required empty public constructor
+  private void initSdk() {
+  
   }
   
   @Override
