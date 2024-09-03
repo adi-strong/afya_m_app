@@ -14,11 +14,6 @@ android {
     versionName = "1.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    externalNativeBuild {
-      cmake {
-        cppFlags += ""
-      }
-    }
   }
 
   buildTypes {
@@ -27,6 +22,7 @@ android {
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
   }
+
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
@@ -63,6 +59,8 @@ dependencies {
   implementation(files("libs/core-3.2.1.jar"))
   implementation(files("libs/emv_2.0.0_R240607.jar"))
   implementation(files("libs/SmartPos_1.9.0_R240612.jar"))
+  implementation(files("libs/nextbiometrics-devices-android.jar"))
+  implementation(files("libs/jna.jar"))
   testImplementation(libs.junit)
   androidTestImplementation(libs.ext.junit)
   androidTestImplementation(libs.espresso.core)
